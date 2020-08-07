@@ -271,6 +271,7 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 	},
 
 	_onMouseDown: function (e) {
+		console.log("clicked")
 		if (!this._clickHandled && !this._touchHandled && !this._disableMarkers) {
 			this._onMouseMove(e);
 			this._clickHandled = true;
