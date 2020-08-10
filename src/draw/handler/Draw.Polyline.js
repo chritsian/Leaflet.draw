@@ -296,7 +296,6 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 
 	_onMouseUp: function (e) {
 		console.log("leafletdraw fork works omu")
-		console.log(e)
 		if(e.originalEvent.which !== 1) {
 			return;
 		}
@@ -330,6 +329,7 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 	// causing unwanted behavior
 	_onTouch: function (e) {
 		console.log("leafletdraw fork works ot")
+		console.log(e)
 		var originalEvent = e.originalEvent;
 		var clientX;
 		var clientY;
