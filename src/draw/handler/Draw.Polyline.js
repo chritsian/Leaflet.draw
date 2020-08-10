@@ -274,6 +274,7 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 	_onMouseDown: function (e) {
 		console.log("leafletdraw fork works omd")
 		console.log("clicked")
+		console.log(e)
 		if (!this._clickHandled && !this._touchHandled && !this._disableMarkers) {
 			this._onMouseMove(e);
 			this._clickHandled = true;
@@ -292,6 +293,7 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 
 	_onMouseUp: function (e) {
 		console.log("leafletdraw fork works omu")
+		console.log(e)
 		var originalEvent = e.originalEvent;
 		var clientX = originalEvent.clientX;
 		var clientY = originalEvent.clientY;
