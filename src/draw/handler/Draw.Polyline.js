@@ -330,6 +330,10 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 	_onTouch: function (e) {
 		console.log("leafletdraw fork works ot")
 		console.log(e)
+		if(e.originalEvent.which !== 1) {
+			console.log("wrong click")
+			return;
+		}
 		var originalEvent = e.originalEvent;
 		var clientX;
 		var clientY;
