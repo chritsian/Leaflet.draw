@@ -1,5 +1,5 @@
 /*
- Leaflet.draw 1.0.3+e42648c, a plugin that adds drawing and editing tools to Leaflet powered maps.
+ Leaflet.draw 1.0.3+f41d0b4, a plugin that adds drawing and editing tools to Leaflet powered maps.
  (c) 2012-2017, Jacob Toye, Jon West, Smartrak, Leaflet
 
  https://github.com/Leaflet/Leaflet.draw
@@ -8,7 +8,7 @@
 (function (window, document, undefined) {/**
  * Leaflet.draw assumes that you have already included the Leaflet library.
  */
-L.drawVersion = "1.0.3+e42648c";
+L.drawVersion = "1.0.3+f41d0b4";
 /**
  * @class L.Draw
  * @aka Draw
@@ -562,7 +562,6 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 
 			this._poly = new L.Polyline([], this.options.shapeOptions);
 
-			this._tooltip.updateContent(this._getTooltipText());
 
 			// Make a transparent marker that will used to catch click events. These click
 			// events will create the vertices. We need to do this so we can ensure that
@@ -588,7 +587,9 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 				.on('mouseup', this._onMouseUp, this) // Necessary for 0.8 compatibility
 				.addTo(this._map);
 			
+			console.log("here?")
 			console.log(this._mouseMarker)
+			this._tooltip.updateContent(this._getTooltipText());
 			this._updateTooltip(this._mouseMarker.latlng)
 
 			this._map
@@ -688,7 +689,6 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 	// @method completeShape(): void
 	// Closes the polyline between the first and last points
 	completeShape: function () {
-		console.log("leafletdraw fork works cs")
 		if (this._markers.length <= 1 || !this._shapeIsValid()) {
 			return;
 		}
@@ -760,10 +760,7 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 	},
 
 	_onMouseDown: function (e) {
-		console.log("leafletdraw fork works omd")
-		console.log("clicked")
 		if(e.originalEvent.which !== 1) {
-			console.log("wrong click")
 			return;
 		}
 		if (!this._clickHandled && !this._touchHandled && !this._disableMarkers) {
@@ -778,12 +775,10 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 	},
 
 	_startPoint: function (clientX, clientY) {
-		console.log("leafletdraw fork works sp")
 		this._mouseDownOrigin = L.point(clientX, clientY);
 	},
 
 	_onMouseUp: function (e) {
-		console.log("leafletdraw fork works omu")
 		if(e.originalEvent.which !== 1) {
 			return;
 		}
@@ -795,7 +790,6 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 	},
 
 	_endPoint: function (clientX, clientY, e) {
-		console.log("leafletdraw fork works ep")
 		if (this._mouseDownOrigin) {
 			var dragCheckDistance = L.point(clientX, clientY)
 				.distanceTo(this._mouseDownOrigin);
@@ -816,10 +810,7 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 	// ontouch prevented by clickHandled flag because some browsers fire both click/touch events,
 	// causing unwanted behavior
 	_onTouch: function (e) {
-		console.log("leafletdraw fork works ot")
-		console.log(e)
 		if(e.originalEvent.which !== 1) {
-			console.log("wrong click")
 			return;
 		}
 		var originalEvent = e.originalEvent;
