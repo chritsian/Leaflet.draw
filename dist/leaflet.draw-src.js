@@ -1,5 +1,5 @@
 /*
- Leaflet.draw 1.0.3+1343d68, a plugin that adds drawing and editing tools to Leaflet powered maps.
+ Leaflet.draw 1.0.3+01bebc2, a plugin that adds drawing and editing tools to Leaflet powered maps.
  (c) 2012-2017, Jacob Toye, Jon West, Smartrak, Leaflet
 
  https://github.com/Leaflet/Leaflet.draw
@@ -8,7 +8,7 @@
 (function (window, document, undefined) {/**
  * Leaflet.draw assumes that you have already included the Leaflet library.
  */
-L.drawVersion = "1.0.3+1343d68";
+L.drawVersion = "1.0.3+01bebc2";
 /**
  * @class L.Draw
  * @aka Draw
@@ -778,12 +778,6 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 	},
 
 	_onMouseUp: function (e) {
-		if(e.originalEvent.which === 3 && !this._touchHandled && !this._clickHandled) {
-			this._clickHandled = true;
-			this._onMouseMove(e);
-			this.completeShape();
-			return;
-		}
 		if(e.originalEvent.which !== 1) {
 			return;
 		}
@@ -815,12 +809,6 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 	// ontouch prevented by clickHandled flag because some browsers fire both click/touch events,
 	// causing unwanted behavior
 	_onTouch: function (e) {
-		if(e.originalEvent.which === 3 && !this._touchHandled && !this._clickHandled) {
-			this._clickHandled = true;
-			this._onMouseMove(e);
-			this.completeShape();
-			return;
-		}
 		if(e.originalEvent.which !== 1) {
 			return;
 		}
