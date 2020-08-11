@@ -104,7 +104,7 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 			
 			this._tooltip.updateContent(this._getTooltipText());
 			this._updateTooltip(this._mouseMarker.latlng)
-			this._tooltip.show()
+			
 
 			this._map
 				.on('mouseup', this._onMouseUp, this) // Necessary for 0.7 compatibility
