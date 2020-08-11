@@ -275,13 +275,13 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 
 	_onMouseDown: function (e) {
 		if(e.originalEvent.which === 2) {
-			console.log("works")
-			deleteLastVertex()
+			console.log("works");
+			this.deleteLastVertex();
 			return;
 		}
 		if(e.originalEvent.which === 3) {
-			completeShape()
-			console.log("cs works")
+			this.completeShape();
+			console.log("cs works");
 			return;
 		}
 		if(e.originalEvent.which !== 1) {
@@ -304,11 +304,13 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 
 	_onMouseUp: function (e) {
 		if(e.originalEvent.which === 2) {
-			deleteLastVertex()
+			console.log("works");
+			this.deleteLastVertex();
 			return;
 		}
 		if(e.originalEvent.which === 3) {
-			completeShape()
+			this.completeShape();
+			console.log("cs works");
 			return;
 		}
 		if(e.originalEvent.which !== 1) {
@@ -343,11 +345,13 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 	// causing unwanted behavior
 	_onTouch: function (e) {
 		if(e.originalEvent.which === 2) {
-			deleteLastVertex()
+			console.log("works");
+			this.deleteLastVertex();
 			return;
 		}
 		if(e.originalEvent.which === 3) {
-			completeShape()
+			this.completeShape();
+			console.log("cs works");
 			return;
 		}
 		if(e.originalEvent.which !== 1) {
