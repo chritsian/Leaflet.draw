@@ -274,12 +274,6 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 	},
 
 	_onMouseDown: function (e) {
-		if(e.originalEvent.which === 3 && !this._touchHandled && !this._clickHandled) {
-			this._clickHandled = true;
-			this._onMouseMove(e);
-			this.completeShape();
-			return;
-		}
 		if(e.originalEvent.which !== 1) {
 			return;
 		}
