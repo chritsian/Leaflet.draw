@@ -102,6 +102,9 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 				.on('mousedown', this._onMouseDown, this)
 				.on('mouseup', this._onMouseUp, this) // Necessary for 0.8 compatibility
 				.addTo(this._map);
+			
+			console.log(this._mouseMarker)
+			this._updateTooltip(this._mouseMarker.latlng)
 
 			this._map
 				.on('mouseup', this._onMouseUp, this) // Necessary for 0.7 compatibility
