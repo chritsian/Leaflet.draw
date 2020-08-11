@@ -66,7 +66,7 @@ L.Draw.Feature = L.Handler.extend({
 			map.getContainer().focus();
 
 			this._tooltip = new L.Draw.Tooltip(this._map);
-
+			this._tooltip.hide()
 			L.DomEvent.on(this._container, 'keyup', this._cancelDrawing, this);
 		}
 	},

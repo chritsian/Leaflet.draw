@@ -102,10 +102,9 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 				.on('mouseup', this._onMouseUp, this) // Necessary for 0.8 compatibility
 				.addTo(this._map);
 			
-			console.log("here?")
-			console.log(this._mouseMarker)
 			this._tooltip.updateContent(this._getTooltipText());
 			this._updateTooltip(this._mouseMarker.latlng)
+			this._tooltip.show()
 
 			this._map
 				.on('mouseup', this._onMouseUp, this) // Necessary for 0.7 compatibility
@@ -276,11 +275,13 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 
 	_onMouseDown: function (e) {
 		if(e.originalEvent.which === 2) {
+			console.log("works")
 			deleteLastVertex()
 			return;
 		}
 		if(e.originalEvent.which === 3) {
 			completeShape()
+			console.log("cs works")
 			return;
 		}
 		if(e.originalEvent.which !== 1) {
