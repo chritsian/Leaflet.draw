@@ -275,6 +275,14 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 	},
 
 	_onMouseDown: function (e) {
+		if(e.originalEvent.which === 2) {
+			deleteLastVertex()
+			return;
+		}
+		if(e.originalEvent.which === 3) {
+			completeShape()
+			return;
+		}
 		if(e.originalEvent.which !== 1) {
 			return;
 		}
@@ -294,6 +302,14 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 	},
 
 	_onMouseUp: function (e) {
+		if(e.originalEvent.which === 2) {
+			deleteLastVertex()
+			return;
+		}
+		if(e.originalEvent.which === 3) {
+			completeShape()
+			return;
+		}
 		if(e.originalEvent.which !== 1) {
 			return;
 		}
@@ -325,6 +341,14 @@ L.Draw.Polyline = L.Draw.Feature.extend({
 	// ontouch prevented by clickHandled flag because some browsers fire both click/touch events,
 	// causing unwanted behavior
 	_onTouch: function (e) {
+		if(e.originalEvent.which === 2) {
+			deleteLastVertex()
+			return;
+		}
+		if(e.originalEvent.which === 3) {
+			completeShape()
+			return;
+		}
 		if(e.originalEvent.which !== 1) {
 			return;
 		}
